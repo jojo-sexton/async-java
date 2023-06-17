@@ -1,14 +1,10 @@
-fetch('todos/poppy.json').then(response =>{
-  console.log('resolved',response)
-  return response.json().then((data) => {
-    console.log(data)
-  }
-  )
-}).catch (err => {
-  console.log('could not get data', err)
-})
-
-
+fetch('todos/poppy.json')
+  .then((response) => {
+    console.log('success', response)
+    return response.json()
+  }) // the whole thing above returns a promise
+  .then((data) => console.log(data))
+  .catch((err) => console.log('rejected', err))
 
 // //a promise is a function go fetch something and returns 2 outcomes resolve or reject.
 
