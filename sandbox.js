@@ -1,7 +1,11 @@
 fetch('todos/poppy.json')
   .then((response) => {
+    if (response.status === 404){
+      console.log ('could not fetch data')
+    } else{
     console.log('success', response)
     return response.json()
+    }
   }) // the whole thing above returns a promise
   .then((data) => console.log(data))
   .catch((err) => console.log('rejected', err))
