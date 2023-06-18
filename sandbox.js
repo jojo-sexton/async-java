@@ -1,15 +1,30 @@
-fetch('todos/poppy.json')
-  .then((response) => {
-    if (response.status === 404){
-      console.log ('could not fetch data')
-    } else{
-    console.log('success', response)
-    return response.json()
-    }
-  }) // the whole thing above returns a promise
-  .then((data) => console.log(data))
-  .catch((err) => console.log('rejected', err))
+// Async and await
 
+const getTodos = async () => {
+  const response = await fetch('todos/poppy.json')
+  const data = response.json()
+  return data
+}
+
+
+console.log(getTodos())
+  .then(data => console.log('resolved:', data))
+
+
+//FETCH API
+// fetch('todos/poppy.json')
+//   .then((response) => {
+//     if (response.status === 404){
+//       console.log ('could not fetch data')
+//     } else{
+//     console.log('success', response)
+//     return response.json()
+//     }
+//   }) // the whole thing above returns a promise
+//   .then((data) => console.log(data))
+//   .catch((err) => console.log('rejected', err))
+
+//A PROMISE HAHAHAHA
 // //a promise is a function go fetch something and returns 2 outcomes resolve or reject.
 
 // const getTodos = (resource) => {
